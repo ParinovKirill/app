@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Parinov Kirill</string>
+    <string name="next">Далее</string>
+    <string name="let_start">Давайте начнём!</string>
 </resources>
