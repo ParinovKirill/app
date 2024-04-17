@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/welcomePageFragment">
+    <fragment
+        android:id="@+id/welcomePageFragment"
+        android:name="com.example.parinovkirill.Presentation.WelcomePageFragment"
+        android:label="fragment_welcome_page"
+        tools:layout="@layout/fragment_welcome_page" >
+        <action
+            android:id="@+id/action_welcomePageFragment_to_genderSelectFragment"
+            app:destination="@id/genderSelectFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/genderSelectFragment"
+        android:name="com.example.parinovkirill.Presentation.GenderSelectFragment"
+        android:label="fragment_gender_select"
+        tools:layout="@layout/fragment_gender_select" >
+        <action
+            android:id="@+id/action_genderSelectFragment_to_userStatsSelectFragment"
+            app:destination="@id/userStatsSelectFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/userStatsSelectFragment"
+        android:name="com.example.parinovkirill.Presentation.UserStatsSelectFragment"
+        android:label="fragment_user_stats_select"
+        tools:layout="@layout/fragment_user_stats_select" />
+</navigation>
