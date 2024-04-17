@@ -5,5 +5,7 @@
     <string name="gender_male">М</string>
     <string name="gender_female">Ж</string>
     <string name="gender_ask">Вы мужчина или женщина?</string>
+    <string name="enter_weight">Введите ваш вес</string>
+    <string name="enter_height">Введите ваш рост</string>
 
 </resources>

@@ -24,6 +24,11 @@
     <style name="welcomeText">
         <item name="android:textColor">@color/white</item>
         <item name="android:fontFamily">@font/roboto_bold</item>
-
     </style>
+
+    <style name="userStatsSelectText">
+        <item name="android:textColor">@color/mainDark</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
 </resources>
