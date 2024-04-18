@@ -14,7 +14,6 @@ import com.example.parinovkirill.R
 
 class WelcomePageFragment : Fragment() {
 
-//    private lateinit var binding: ViewBinding
     private lateinit var navController: NavController
 
     override fun onCreateView(
