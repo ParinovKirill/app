@@ -1,4 +1,4 @@
-package com.example.parinovkirill.Presentation
+package com.example.parinovkirill.Presentation.Home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

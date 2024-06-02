@@ -1,4 +1,4 @@
-package com.example.parinovkirill.Presentation
+package com.example.parinovkirill.Presentation.Welcome
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,20 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import androidx.viewbinding.ViewBinding
 import com.example.parinovkirill.R
 
 class WelcomePageFragment : Fragment() {
-
-    private lateinit var navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        navController = findNavController()
         return inflater.inflate(R.layout.fragment_welcome_page, container, false)
     }
 
@@ -28,7 +23,10 @@ class WelcomePageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val buttonNext = view.findViewById<Button>(R.id.buttonNext)
         buttonNext.setOnClickListener {
-            navController.navigate(R.id.action_welcomePageFragment_to_genderSelectFragment)
+            parentFragmentManager
+                .beginTransaction()
+                .replace(R.id.place_holder, GenderSelectFragment.newInstance())
+                .commit()
         }
     }
     companion object {

@@ -1,4 +1,4 @@
-package com.example.parinovkirill.Presentation
+package com.example.parinovkirill.Presentation.Welcome
 
 import android.content.Context
 import android.os.Bundle
@@ -8,21 +8,27 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import com.example.parinovkirill.Data.User.User
 import com.example.parinovkirill.R
+import dagger.hilt.android.scopes.FragmentScoped
+import javax.inject.Inject
+import javax.inject.Singleton
 
 
+@Singleton
 class GenderSelectFragment : Fragment() {
 
-    private lateinit var navController: NavController
+    private val viewModel: SignUpViewModel by viewModels({ requireActivity() })
+
     private lateinit var context: Context
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        navController = findNavController()
         context = requireContext()
         return inflater.inflate(R.layout.fragment_gender_select, container, false)
     }
@@ -32,20 +38,25 @@ class GenderSelectFragment : Fragment() {
         val buttonNext = view.findViewById<Button>(R.id.buttonNext)
         val buttonGenderMale = view.findViewById<Button>(R.id.buttonGenderMale)
         val buttonGenderFemale = view.findViewById<Button>(R.id.buttonGenderFemale)
+        var gender = ""
 
         buttonGenderFemale.setOnClickListener {
             setButtonFemaleFocus(buttonGenderFemale, buttonGenderMale)
-
+            gender = "F"
         }
 
         buttonGenderMale.setOnClickListener {
             setButtonMaleFocus(buttonGenderMale, buttonGenderFemale)
-
+            gender = "M"
         }
 
-
         buttonNext.setOnClickListener {
-            navController.navigate(R.id.action_genderSelectFragment_to_userStatsSelectFragment)
+            val user = User(gender = gender)
+            viewModel.setUser(user)
+            parentFragmentManager
+                .beginTransaction()
+                .replace(R.id.place_holder, UserStatsSelectFragment.newInstance())
+                .commit()
         }
     }
 

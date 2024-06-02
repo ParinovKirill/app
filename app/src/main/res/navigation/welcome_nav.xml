@@ -6,7 +6,7 @@
     app:startDestination="@id/welcomePageFragment">
     <fragment
         android:id="@+id/welcomePageFragment"
-        android:name="com.example.parinovkirill.Presentation.WelcomePageFragment"
+        android:name="com.example.parinovkirill.Presentation.Welcome.WelcomePageFragment"
         android:label="fragment_welcome_page"
         tools:layout="@layout/fragment_welcome_page" >
         <action
@@ -16,10 +16,13 @@
             app:exitAnim="@anim/slide_out_right"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_right" />
+        <argument
+            android:name="viewModel"
+            app:argType="com.example.parinovkirill.Presentation.Welcome.SignUpViewModel" />
     </fragment>
     <fragment
         android:id="@+id/genderSelectFragment"
-        android:name="com.example.parinovkirill.Presentation.GenderSelectFragment"
+        android:name="com.example.parinovkirill.Presentation.Welcome.GenderSelectFragment"
         android:label="fragment_gender_select"
         tools:layout="@layout/fragment_gender_select" >
         <action
@@ -32,7 +35,10 @@
     </fragment>
     <fragment
         android:id="@+id/userStatsSelectFragment"
-        android:name="com.example.parinovkirill.Presentation.UserStatsSelectFragment"
+        android:name="com.example.parinovkirill.Presentation.Welcome.UserStatsSelectFragment"
         android:label="fragment_user_stats_select"
         tools:layout="@layout/fragment_user_stats_select" />
+    <argument
+        android:name="viewModel"
+        app:argType="com.example.parinovkirill.Presentation.Welcome.SignUpViewModel" />
 </navigation>

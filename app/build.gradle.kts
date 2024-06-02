@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     kotlin("kapt")
+    id ("com.google.dagger.hilt.android")
 }
 
 android {
@@ -38,6 +39,10 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 dependencies {
@@ -48,12 +53,22 @@ dependencies {
     implementation("androidx.room:room-ktx:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
     kapt("androidx.room:room-compiler:$room_version")
+    debugImplementation ("androidx.room:room-testing:2.3.0")
 
 
     //navigation
     val nav_version = "2.7.7"
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+    //Hilt
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    implementation("androidx.hilt:hilt-navigation-fragment:1.0.0")
+    kapt ("com.google.dagger:hilt-compiler:2.51.1")
+    kapt ("androidx.hilt:hilt-compiler:1.0.0-alpha01")
+
+    //Corotines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
 
 
     implementation(libs.androidx.core.ktx)

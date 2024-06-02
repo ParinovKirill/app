@@ -9,13 +9,13 @@ data class User(
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
     @ColumnInfo("gender")
-    val gender: String,
+    val gender: String? = null,
     @ColumnInfo("height")
-    val height: Int,
+    val height: Int? = null,
     @ColumnInfo("weight")
-    val weight: Float,
+    val weight: Float? = null,
     @ColumnInfo("imt")
-    val tmi: Float,
+    val tmi: Float? = null,
     @ColumnInfo("calories")
-    val calories: Float,
+    val calories: Float? = null,
     )
